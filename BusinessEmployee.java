@@ -1,6 +1,6 @@
 public abstract class BusinessEmployee extends Employee {
     double bonusBudget;
-    TechnicalLead teamSupported;
+
     public BusinessEmployee(String name){
         super(name, 50000);
     }

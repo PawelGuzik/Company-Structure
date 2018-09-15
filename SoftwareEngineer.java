@@ -24,8 +24,14 @@ public class SoftwareEngineer extends TechnicalEmployee {
             this.successfulCheckIns++;
             return true;
         }else{
-            this.codeAccess = false;
+            setCodeAccess(false);
             return false;
         }
+    }
+
+    public String employeeStatus(){
+        String result = super.employeeStatus();
+        result += " has " + getSuccessfulCheckIn() + " successful check ins.";
+        return result;
     }
 }

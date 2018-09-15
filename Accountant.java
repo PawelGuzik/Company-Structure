@@ -35,7 +35,7 @@ public class Accountant extends BusinessEmployee {
         result = this.getEmployeeID() + " " +
                 this.getName() + " with a budget of " + this.bonusBudget;
         if(techLeaderSupported != null){
-            result = result  + " is supporting " +
+            result = result  + " and is supporting " +
              techLeaderSupported.getName();
         }
         return result;

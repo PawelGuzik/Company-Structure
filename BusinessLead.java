@@ -57,7 +57,7 @@ public class BusinessLead extends BusinessEmployee {
 
     public String getTeamStatus() {
         String result;
-        result = employeeStatus() + "\n" + " and is managing: ";
+        result = employeeStatus() + " and is managing: " + "\n";
         for(int i = 0; i < headCount; i++){
             if (listOfdirectReports[i] != null) {
                 result = result + listOfdirectReports[i].employeeStatus() + "\n";

@@ -7,7 +7,6 @@ public abstract class TechnicalEmployee extends Employee {
     public String employeeStatus(){
         String result;
         result = super.employeeStatus();
-        result = result + " has " + successfulCheckIns + " successful check ins";
         return result;
     }
 }
