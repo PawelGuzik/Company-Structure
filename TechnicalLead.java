@@ -3,6 +3,7 @@ public class TechnicalLead extends TechnicalEmployee {
     private int numberOfDirectReports;
     private SoftwareEngineer[] listOfDirectReports = new SoftwareEngineer[4];
     private BusinessLead manager;
+    private Accountant suportingAccoutant;
     public TechnicalLead(String name){
         super(name);
         setBaseSalary(1.3*getBaseSalary());
@@ -43,7 +44,7 @@ public class TechnicalLead extends TechnicalEmployee {
 
     public String getTeamStatus() {
         String result;
-        result = employeeStatus() + "\n";
+        result = employeeStatus() + " and is managing: \n";
         if(numberOfDirectReports > 0) {
             for (int i = 0; i < headCount; i++) {
                 if (listOfDirectReports[i] != null) {
@@ -56,8 +57,20 @@ public class TechnicalLead extends TechnicalEmployee {
         return result;
     }
 
+    public Accountant getAccoutant(){
+        return this.suportingAccoutant;
+    }
+
+    public void setAccoutant(Accountant acc){
+        this.suportingAccoutant = acc;
+    }
+
     public SoftwareEngineer[] getDirectReports(){
         return listOfDirectReports;
+    }
+
+    public int getNumberOfDirectReports(){
+        return numberOfDirectReports;
     }
 
 }

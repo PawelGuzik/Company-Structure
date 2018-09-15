@@ -4,7 +4,7 @@ public class SoftwareEngineer extends TechnicalEmployee {
     public SoftwareEngineer(String name){
         super(name);
         codeAccess = false;
-        succesfulCheckIns = 0;
+        successfulCheckIns = 0;
     }
 
     public boolean getCodeAccess(){
@@ -16,12 +16,12 @@ public class SoftwareEngineer extends TechnicalEmployee {
     }
 
     public int getSuccessfulCheckIn(){
-        return this.succesfulCheckIns;
+        return this.successfulCheckIns;
     }
 
     public boolean checkInCode(){
         if(manager.approveCheckIn(this)){
-            this.succesfulCheckIns++;
+            this.successfulCheckIns++;
             return true;
         }else{
             this.codeAccess = false;

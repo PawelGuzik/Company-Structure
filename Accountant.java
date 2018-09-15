@@ -13,9 +13,9 @@ public class Accountant extends BusinessEmployee {
 
     public void supportTeam(TechnicalLead lead){
         this.techLeaderSupported = lead;
-        for (int i = 0; i<= lead.getDirectReports().length; i++){
-            if(lead.getDirectReports()[i] != null){
-                this.bonusBudget =+ lead.getDirectReports()[i].getBaseSalary()*1.1;
+        for (int i = 0; i < lead.getNumberOfDirectReports(); i++){
+            if(lead.getNumberOfDirectReports() > 0){
+                this.bonusBudget =bonusBudget + lead.getDirectReports()[i].getBaseSalary()*1.1;
             }
         }
 

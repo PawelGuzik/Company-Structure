@@ -1,12 +1,11 @@
 public class BusinessLead extends BusinessEmployee {
     private int headCount;
     private int directReports;
-    private double bonusBudget;
     private Employee[] listOfdirectReports = new Employee[10];
     public BusinessLead(String name){
         super(name);
         this.headCount = 10;
-        setBaseSalary(2*getBaseSalary());
+        setBaseSalary(2*super.getBaseSalary());
         this.directReports = 0;
     }
 
@@ -18,22 +17,17 @@ public class BusinessLead extends BusinessEmployee {
         if(hasHeadCount()) {
             listOfdirectReports[directReports] = e;
             directReports++;
-            this.bonusBudget =+ e.getBaseSalary()*1.1;
-            if(hasHeadCount()) {
-                listOfdirectReports[directReports] = supportTeam;
-                directReports++;
-                this.bonusBudget =+ supportTeam.getBaseSalary() * 1.1;
-                return true;
-            }else {
-                return false;
-            }
+            bonusBudget = bonusBudget + e.getBaseSalary()*1.1;
+            supportTeam.setAccoutant(e);
+            e.supportTeam(supportTeam);
+            return true;
         }else{
             return false;
         }
     }
 
     public boolean requestBonus(Employee e, double bonus){
-        if(bonus <= this.bonusBudget) {
+        if(bonus <= bonusBudget) {
             e.setBaseSalary(e.getBaseSalary() + bonus);
             bonusBudget -= bonus;
             return true;
@@ -61,21 +55,10 @@ public class BusinessLead extends BusinessEmployee {
         return result;
     }
 
-    public String employeeStatus(){
-        return getEmployeeID() + " " +
-                getName() + " with a budget of " +
-                getBonusBudget();
-    }
 
-    public double getBonusBudget(){
-        return bonusBudget;
-    }
-    public Employee getManager(){
-        return null;
-    }
     public String getTeamStatus() {
         String result;
-        result = employeeStatus() + "\n";
+        result = employeeStatus() + "\n" ;
         for(int i = 0; i < headCount; i++){
             if (listOfdirectReports[i] != null) {
                 result = result + listOfdirectReports[i].employeeStatus() + "\n";

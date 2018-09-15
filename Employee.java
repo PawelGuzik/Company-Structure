@@ -45,7 +45,7 @@ public abstract class Employee {
     }
 
     public String toString(){
-        return this.employeeID + " " + this.name;
+        return employeeID + " " + name;
     }
 
     public String employeeStatus(){

@@ -1,5 +1,5 @@
 public abstract class TechnicalEmployee extends Employee {
-    int succesfulCheckIns;
+    int successfulCheckIns;
     public TechnicalEmployee(String name){
         super(name,75000);
     }
@@ -7,7 +7,7 @@ public abstract class TechnicalEmployee extends Employee {
     public String employeeStatus(){
         String result;
         result = super.employeeStatus();
-        result = result + " has " + succesfulCheckIns + " successful check ins";
+        result = result + " has " + successfulCheckIns + " successful check ins";
         return result;
     }
 }
